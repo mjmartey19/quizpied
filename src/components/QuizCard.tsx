@@ -1,13 +1,31 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faEllipsis,
-  faPlay,
-} from '@fortawesome/free-solid-svg-icons';
-import useGlobalContextProvider from '../ContextApi';
-import convertToFaIcons from '../convertToFaIcons';
+import { faEllipsis, faPlay } from '@fortawesome/free-solid-svg-icons';
+import useGlobalContextProvider from './../ContextApi';
+import convertToFaIcons from './contents/convertToFaIcons';
 
-function successRate(singleQuiz) {
+
+
+interface Quiz {
+  id: number;
+  icon: any;
+  quizTitle: string;
+  quizQuestions: Question[];
+}
+
+interface Question {
+  id: number;
+  mainQuestion: string;
+  choices: string[];
+  correctAnswer: number;
+  answeredResult: number;
+  statistics: {
+    totalAttempts: number;
+    correctAttempts: number;
+    incorrectAttempts: number;
+  };
+}
+
+function successRate(singleQuiz: Quiz) {
   let correctQuestions = 0;
   let totalAttempts = 0;
   let successRate = 0;
@@ -21,7 +39,11 @@ function successRate(singleQuiz) {
   return successRate;
 }
 
-function QuizCard({ singleQuiz }) {
+interface QuizCardProps {
+  singleQuiz: Quiz;
+}
+
+function QuizCard({ singleQuiz }: QuizCardProps) {
   const {
     quizToStartObject,
     dropDownToggleObject,
@@ -31,14 +53,14 @@ function QuizCard({ singleQuiz }) {
   const { setDropDownToggle } = dropDownToggleObject;
   const { setSelectQuizToStart } = quizToStartObject;
   const { setThreeDotsPositions } = threeDotsPositionsObject;
-  const { selectedQuiz, setSelectedQuiz } = selectedQuizObject;
+  const { setSelectedQuiz } = selectedQuizObject;
 
   const { quizTitle, quizQuestions, icon } = singleQuiz;
 
   const totalQuestions = quizQuestions.length;
   const globalSuccessRate = successRate(singleQuiz);
 
-  function openDropDownMenu(event) {
+  function openDropDownMenu(event: React.MouseEvent<SVGSVGElement, MouseEvent>) {
     const xPos = event.clientX;
     const yPos = event.clientY;
 
@@ -52,12 +74,12 @@ function QuizCard({ singleQuiz }) {
     setSelectedQuiz(singleQuiz);
   }
 
-  const handleNavigation = (path) => {
+  const handleNavigation = (path: string) => {
     window.location.href = path;
   };
 
   return (
-    <div className="rounded-[10px] flex flex-col gap-2 border border-gray-300 bg-white p-4">
+    <div className="rounded-[10px] flex flex-col gap-2 border border-stroke bg-white p-4">
       {/* Image Container */}
       <div className="relative bg-green-700 w-full h-32 flex justify-center items-center rounded-md">
         {/* More Options Icon */}

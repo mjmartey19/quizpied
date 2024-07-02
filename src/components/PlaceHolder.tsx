@@ -1,5 +1,4 @@
-import React from 'react';
-import useGlobalContextProvider from '../ContextApi';
+import useGlobalContextProvider from './../ContextApi';
 
 function PlaceHolder(props) {
   const { userObject } = useGlobalContextProvider();

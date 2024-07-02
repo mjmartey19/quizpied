@@ -5,7 +5,7 @@ import Loader from './common/Loader';
 import PageTitle from './components/PageTitle';
 import SignIn from './pages/Authentication/SignIn';
 import Dashboard from './pages/Dashboard/Dashboard';
-import FormLayout from './pages/Form/FormLayout';
+
 import Profile from './pages/Profile';
 import Settings from './pages/Settings';
 import DefaultLayout from './layout/DefaultLayout';
@@ -13,6 +13,8 @@ import UserForm from './pages/User/UserForm';
 import Users from './pages/User/Users';
 import Category from './pages/Category';
 import Title from './pages/Titles';
+import QuizzesArea from './components/QuizzesArea';
+import { ContextProvider } from './ContextApi';
 
 function Layout() {
   const user = {token: 'fghjb543'}; // You might want to fetch or define your user data here
@@ -99,11 +101,13 @@ function App() {
             }
           />
           <Route
-            path="/forms/form-layout"
+            path="/quizzes"
             element={
               <>
-                <PageTitle title="Form Layout" />
-                <FormLayout />
+                <PageTitle title="Quiz" />
+                <ContextProvider>
+                  <QuizzesArea />
+                </ContextProvider>
               </>
             }
           />

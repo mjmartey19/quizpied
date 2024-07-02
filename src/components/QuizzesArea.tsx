@@ -1,17 +1,16 @@
 import React from 'react';
 import QuizCard from './QuizCard';
 import PlaceHolder from './PlaceHolder';
-import useGlobalContextProvider from '../ContextApi';
-import DropDown from './DropDown';
+import useGlobalContextProvider from './../ContextApi';
+import plus  from './../images/icon/add-quiz.png'
 
-function QuizzesArea({ props }) {
-  const { allQuizzes, userObject, isLoadingObject } =
-    useGlobalContextProvider();
+function QuizzesArea() {
+  const { allQuizzes, userObject, isLoadingObject } = useGlobalContextProvider();
   const { user, setUser } = userObject;
   const { isLoading } = isLoadingObject;
   console.log(isLoading);
 
-  const handleNavigation = (path) => {
+  const handleNavigation = (path: string) => {
     window.location.href = path;
   };
 
@@ -26,16 +25,15 @@ function QuizzesArea({ props }) {
               <PlaceHolder />
             ) : (
               <div>
-                <DropDown />
                 <h2 className="text-xl font-bold">My Quizzes</h2>
                 <div className="mt-6 flex gap-2 flex-wrap">
                   <div
                     onClick={() => handleNavigation('/quiz-build')}
                     className="cursor-pointer justify-center items-center rounded-[10px]
-                   w-[230px] flex flex-col gap-2 border border-gray-100 bg-white p-4"
+                   w-[230px] flex flex-col gap-2 border border-stroke bg-white p-4"
                   >
                     <img
-                      src={'/add-quiz.png'}
+                      src={plus}
                       width={160}
                       height={160}
                       alt=""
