@@ -1,8 +1,8 @@
-import React from 'react';
 import QuizCard from './QuizCard';
 import PlaceHolder from './PlaceHolder';
 import useGlobalContextProvider from './../ContextApi';
 import plus  from './../images/icon/add-quiz.png'
+import DropDown from './Dropdowns/DropDown';
 
 function QuizzesArea() {
   const { allQuizzes, userObject, isLoadingObject } = useGlobalContextProvider();
@@ -25,12 +25,13 @@ function QuizzesArea() {
               <PlaceHolder />
             ) : (
               <div>
+                <DropDown />
                 <h2 className="text-xl font-bold">My Quizzes</h2>
-                <div className="mt-6 flex gap-2 flex-wrap">
+                <div className="mt-6 flex gap-2 flex-wrap ">
                   <div
                     onClick={() => handleNavigation('/quiz-build')}
                     className="cursor-pointer justify-center items-center rounded-[10px]
-                   w-[230px] flex flex-col gap-2 border border-stroke bg-white p-4"
+                   w-[230px] flex flex-col gap-2 border border-stroke  p-4 dark:border-strokedark"
                   >
                     <img
                       src={plus}

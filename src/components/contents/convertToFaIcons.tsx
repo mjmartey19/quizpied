@@ -1,5 +1,6 @@
 import {
   faCode,
+  faDoorOpen,
   faFlask,
   faBook,
   faGlobe,
@@ -20,12 +21,15 @@ import {
   faCamera,
   faCalculator,
   faQuestion,
+  IconDefinition,
 } from '@fortawesome/free-solid-svg-icons';
 
-function convertToFaIcons(textIcon) {
+function convertToFaIcons(textIcon: string): IconDefinition {
   switch (textIcon) {
     case 'faCode':
       return faCode;
+    case 'faDoorOpen':
+      return faDoorOpen;
     case 'faFlask':
       return faFlask;
     case 'faBook':
@@ -65,7 +69,7 @@ function convertToFaIcons(textIcon) {
     case 'faCalculator':
       return faCalculator;
     default:
-      return faQuestion;
+      return faLaptopCode;
   }
 }
 

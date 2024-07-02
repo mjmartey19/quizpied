@@ -1,98 +1,100 @@
-import { faCode } from '@fortawesome/free-solid-svg-icons';
+import { faCode, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 
 export const quizzesData = [
-  {
-    id: 1,
-    icon: faCode,
-    quizTitle: 'Javascript Quiz',
-    quizQuestions: [
-      {
-        id: 1,
-        mainQuestion: 'What is the purpose of JavaScript?',
-        choices: [
-          'A. To style HTML elements',
-          'B. To add interactivity to web pages',
-          'C. To define the structure of a web page',
-          'D. To perform server-side operations',
-        ],
-        correctAnswer: 1,
-        answeredResult: -1,
-        statistics: {
-          totalAttempts: 0,
-          correctAttempts: 0,
-          incorrectAttempts: 0,
-        },
-      },
-      {
-        id: 2,
-        mainQuestion:
-          'Which keyword is used to declare variables in JavaScript?',
-        choices: ['A. var', 'B. let', 'C. const', 'D. variable'],
-        correctAnswer: 1,
-        answeredResult: -1,
-        statistics: {
-          totalAttempts: 0,
-          correctAttempts: 0,
-          incorrectAttempts: 0,
-        },
-      },
-      {
-        id: 3,
-        mainQuestion: "What does 'this' keyword refer to in JavaScript?",
-        choices: [
-          'A. The current function',
-          'B. The global object',
-          'C. The object that invoked the function',
-          'D. None of the above',
-        ],
-        correctAnswer: 2,
-        answeredResult: -1,
-        statistics: {
-          totalAttempts: 0,
-          correctAttempts: 0,
-          incorrectAttempts: 0,
-        },
-      },
-      {
-        id: 4,
-        mainQuestion:
-          "What is the use of the Array method 'map' in JavaScript?",
-        choices: [
-          'A. To loop over the array',
-          'B. To modify each item in the array and create a new array',
-          'C. To check if a particular element exists in the array',
-          'D. To add a new element to the array',
-        ],
-        correctAnswer: 1,
-        answeredResult: -1,
-        statistics: {
-          totalAttempts: 0,
-          correctAttempts: 0,
-          incorrectAttempts: 0,
-        },
-      },
-      {
-        id: 5,
-        mainQuestion: 'How do you declare a function in JavaScript?',
-        choices: [
-          'A. function = myFunction()',
-          'B. function myFunction()',
-          'C. var myFunction = function()',
-          'D. Both B and C',
-        ],
-        correctAnswer: 3,
-        answeredResult: -1,
-        statistics: {
-          totalAttempts: 0,
-          correctAttempts: 0,
-          incorrectAttempts: 0,
-        },
-      },
-    ],
-  },
+  // {
+  //   id: 1,
+  //   icon: faDoorOpen,
+  //   status: 'Active',
+  //   quizTitle: 'Javascript Quiz',
+  //   quizQuestions: [
+  //     {
+  //       id: 1,
+  //       mainQuestion: 'What is the purpose of JavaScript?',
+  //       choices: [
+  //         'A. To style HTML elements',
+  //         'B. To add interactivity to web pages',
+  //         'C. To define the structure of a web page',
+  //         'D. To perform server-side operations',
+  //       ],
+  //       correctAnswer: 1,
+  //       answeredResult: -1,
+  //       statistics: {
+  //         totalAttempts: 0,
+  //         correctAttempts: 0,
+  //         incorrectAttempts: 0,
+  //       },
+  //     },
+  //     {
+  //       id: 2,
+  //       mainQuestion:
+  //         'Which keyword is used to declare variables in JavaScript?',
+  //       choices: ['A. var', 'B. let', 'C. const', 'D. variable'],
+  //       correctAnswer: 1,
+  //       answeredResult: -1,
+  //       statistics: {
+  //         totalAttempts: 0,
+  //         correctAttempts: 0,
+  //         incorrectAttempts: 0,
+  //       },
+  //     },
+  //     {
+  //       id: 3,
+  //       mainQuestion: "What does 'this' keyword refer to in JavaScript?",
+  //       choices: [
+  //         'A. The current function',
+  //         'B. The global object',
+  //         'C. The object that invoked the function',
+  //         'D. None of the above',
+  //       ],
+  //       correctAnswer: 2,
+  //       answeredResult: -1,
+  //       statistics: {
+  //         totalAttempts: 0,
+  //         correctAttempts: 0,
+  //         incorrectAttempts: 0,
+  //       },
+  //     },
+  //     {
+  //       id: 4,
+  //       mainQuestion:
+  //         "What is the use of the Array method 'map' in JavaScript?",
+  //       choices: [
+  //         'A. To loop over the array',
+  //         'B. To modify each item in the array and create a new array',
+  //         'C. To check if a particular element exists in the array',
+  //         'D. To add a new element to the array',
+  //       ],
+  //       correctAnswer: 1,
+  //       answeredResult: -1,
+  //       statistics: {
+  //         totalAttempts: 0,
+  //         correctAttempts: 0,
+  //         incorrectAttempts: 0,
+  //       },
+  //     },
+  //     {
+  //       id: 5,
+  //       mainQuestion: 'How do you declare a function in JavaScript?',
+  //       choices: [
+  //         'A. function = myFunction()',
+  //         'B. function myFunction()',
+  //         'C. var myFunction = function()',
+  //         'D. Both B and C',
+  //       ],
+  //       correctAnswer: 3,
+  //       answeredResult: -1,
+  //       statistics: {
+  //         totalAttempts: 0,
+  //         correctAttempts: 0,
+  //         incorrectAttempts: 0,
+  //       },
+  //     },
+  //   ],
+  // },
   {
     id: 2,
-    icon: faCode,
+    icon: faDoorOpen,
+    status: 'Inactive',
     quizTitle: 'React Quiz',
     quizQuestions: [
       {
@@ -136,6 +138,7 @@ export const quizzesData = [
   {
     id: 3,
     icon: faCode,
+    status: 'Active',
     quizTitle: 'React Quiz',
     quizQuestions: [
       {

@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsis, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisVertical, faPlay } from '@fortawesome/free-solid-svg-icons';
 import useGlobalContextProvider from './../ContextApi';
 import convertToFaIcons from './contents/convertToFaIcons';
 
@@ -9,6 +9,7 @@ interface Quiz {
   id: number;
   icon: any;
   quizTitle: string;
+  status: string;
   quizQuestions: Question[];
 }
 
@@ -55,7 +56,7 @@ function QuizCard({ singleQuiz }: QuizCardProps) {
   const { setThreeDotsPositions } = threeDotsPositionsObject;
   const { setSelectedQuiz } = selectedQuizObject;
 
-  const { quizTitle, quizQuestions, icon } = singleQuiz;
+  const { quizTitle, quizQuestions, icon, status } = singleQuiz;
 
   const totalQuestions = quizQuestions.length;
   const globalSuccessRate = successRate(singleQuiz);
@@ -72,6 +73,7 @@ function QuizCard({ singleQuiz }: QuizCardProps) {
 
     setDropDownToggle(true);
     setSelectedQuiz(singleQuiz);
+  
   }
 
   const handleNavigation = (path: string) => {
@@ -79,53 +81,46 @@ function QuizCard({ singleQuiz }: QuizCardProps) {
   };
 
   return (
-    <div className="rounded-[10px] flex flex-col gap-2 border border-stroke bg-white p-4">
+    <div className="rounded-[10px] flex flex-col border border-stroke w-[230px] overflow-hidden pb-2">
       {/* Image Container */}
-      <div className="relative bg-green-700 w-full h-32 flex justify-center items-center rounded-md">
+      <div className="relative  w-full h-32 flex justify-center items-center bg-violet-100">
         {/* More Options Icon */}
-        <div className="absolute cursor-pointer top-3 right-3">
+        <div className="absolute cursor-pointer top-2 right-2">
           <FontAwesomeIcon
-            className="text-white"
+            className="text-black"
             height={13}
             width={13}
-            icon={faEllipsis}
+            icon={faEllipsisVertical}
             onClick={openDropDownMenu}
           />
         </div>
         {/* Quiz Icon */}
         <FontAwesomeIcon
-          className="text-white text-3xl"
+          className="text-primary text-6xl"
           width={120}
           height={120}
           icon={convertToFaIcons(icon)}
         />
       </div>
-      {/* Title Area */}
+     <div className='p-5'>
+        {/* Title Area */}
       <h3 className="font-bold">{quizTitle}</h3>
-      {/* Questions */}
-      <p className="text-sm font-light">{totalQuestions} question(s)</p>
-      {/* Footer Area */}
-      <div className="flex gap-3">
-        {/* success rate area */}
-        <div className="flex gap-1 items-center">
-          <img src="/target-777.png" width={20} height={10} alt="" />
-          <span className="text-[12px]">Success rate: {globalSuccessRate}%</span>
-        </div>
-        <div
-          onClick={() => {
-            setSelectQuizToStart(singleQuiz);
-            handleNavigation('/quiz-start');
-          }}
-          className="rounded-full w-7 h-7 bg-green-700 flex items-center justify-center cursor-pointer"
-        >
-          <FontAwesomeIcon
-            className="text-white"
-            width={15}
-            height={15}
-            icon={faPlay}
-          />
-        </div>
+        {/* Questions */}
+      <div className='flex justify-between items-center'>
+        <p className="text-sm font-light">{totalQuestions} question(s)</p>
+        <span
+            className={`inline-flex rounded-full bg-opacity-10 py-1 px-3 text-xs font-medium ${
+              status === "Active"
+                ? "bg-success text-success"
+                : status === "inactive"
+                ? "bg-danger text-danger"
+                : "bg-warning text-warning"
+            }`}
+          >
+            {status}
+          </span>
       </div>
+    </div>
     </div>
   );
 }

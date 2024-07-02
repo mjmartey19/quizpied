@@ -5,6 +5,7 @@ import {
   useGlobalFilter,
   usePagination,
 } from "react-table"
+
 import {
   FaSearch,
   FaChevronDown,
@@ -16,7 +17,7 @@ import {
   FaSort,
 } from "react-icons/fa";
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions, Transition } from "@headlessui/react";
-import Breadcrumb from "../../components/Breadcrumbs/Breadcrumb";
+// import Breadcrumb from "../../components/Breadcrumbs/Breadcrumb";
 
 interface ButtonProps {
   content: React.ReactNode;
@@ -34,7 +35,7 @@ const Button2: React.FC<ButtonProps> = ({
   return (
     <button
       className={`flex flex-col cursor-pointer items-center justify-center w-9 h-9 shadow-[0_4px_10px_rgba(0,0,0,0.03)] text-sm font-normal transition-colors rounded-lg   dark:bg-meta-4 ${
-        active ? "bg-green-600 text-white dark:bg-primary" : "text-primary"
+        active ? "bg-primarylight text-white dark:bg-primary" : "text-primary"
       } ${!disabled ? " hover:bg-primary hover:text-white" : "text-primarylight2 bg-white cursor-not-allowed"}`}
       onClick={onClick}
       disabled={disabled}

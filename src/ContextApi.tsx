@@ -1,11 +1,12 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { quizzesData } from './components/contents/QuizzesData';
-import { faQuestion } from '@fortawesome/free-solid-svg-icons';
+import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 
 interface Quiz {
   id: number;
-  icon: any; // specify the correct type for icons if available
+  icon: any;
   quizTitle: string;
+  status: string;
   quizQuestions: Question[];
 }
 
@@ -81,7 +82,7 @@ export function ContextProvider({ children }: { children: ReactNode }) {
   });
   const [openIconBox, setOpenIconBox] = useState(false);
   const [selectedQuiz, setSelectedQuiz] = useState<Quiz | null>(null);
-  const [selectedIcon, setSelectedIcon] = useState({ faIcon: faQuestion });
+  const [selectedIcon, setSelectedIcon] = useState({ faIcon: faDoorOpen });
   const [dropDownToggle, setDropDownToggle] = useState(false);
   const [threeDotsPositions, setThreeDotsPositions] = useState({ x: 0, y: 0 });
   const [isLoading, setLoading] = useState(false);
@@ -98,7 +99,7 @@ export function ContextProvider({ children }: { children: ReactNode }) {
     if (selectedQuiz) {
       setSelectedIcon({ faIcon: selectedQuiz.icon });
     } else {
-      setSelectedIcon({ faIcon: faQuestion });
+      setSelectedIcon({ faIcon: faDoorOpen });
     }
   }, [selectedQuiz]);
 
